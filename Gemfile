@@ -50,5 +50,8 @@ group :development, :test do
   # rails minitest
   gem 'minitest-rails'
 
+  gem 'minitest-reporters'
+  gem 'guard-minitest'
+  gem 'mini_backtrace'
 end
 
