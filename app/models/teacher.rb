@@ -5,4 +5,9 @@ class Teacher < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   
   belongs_to :classroom
+
+  def full_name
+    return self.first_name unless self.first_name || self.last_name 
+    return self.first_name + " " + self.last_name
+  end
 end

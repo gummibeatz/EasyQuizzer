@@ -42,4 +42,16 @@ class Student < ActiveRecord::Base
     @login || self.username || self.email
   end
 
+  def full_name
+    return self.first_name unless self.first_name && self.last_name
+    return self.first_name + " " + self.last_name
+  end
+
+  def email_required?
+    false
+  end
+
+  def email_changed?
+    false
+  end
 end

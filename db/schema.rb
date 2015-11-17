@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 20151114180204) do
   end
 
   create_table "students", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
+    t.string   "email"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 20151114180204) do
     t.string   "username"
   end
 
-  add_index "students", ["email"], name: "index_students_on_email", unique: true, using: :btree
   add_index "students", ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true, using: :btree
 
   create_table "teachers", force: :cascade do |t|
