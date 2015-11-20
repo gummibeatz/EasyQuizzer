@@ -19,14 +19,14 @@ class Student < ActiveRecord::Base
   # validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/
 
 
-    def self.find_for_database_authentication(warden_conditions)
-      conditions = warden_conditions.dup
-      if login = conditions.delete(:login)
-        where(conditions.to_h).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
-      else
-        where(conditions.to_h).first
-      end
+  def self.find_for_database_authentication(warden_conditions)
+    conditions = warden_conditions.dup
+    if login = conditions.delete(:login)
+      where(conditions.to_h).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+    else
+      where(conditions.to_h).first
     end
+  end
 
   def validate_username
     if Student.where(email: username).exists?
@@ -55,3 +55,26 @@ class Student < ActiveRecord::Base
     false
   end
 end
+
+# == Schema Information
+#
+# Table name: students
+#
+#  id                     :integer          not null, primary key
+#  encrypted_password     :string           default(""), not null
+#  email                  :string
+#  reset_password_token   :string
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#  sign_in_count          :integer          default(0), not null
+#  current_sign_in_at     :datetime
+#  last_sign_in_at        :datetime
+#  current_sign_in_ip     :inet
+#  last_sign_in_ip        :inet
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  classroom_id           :integer
+#  first_name             :string
+#  last_name              :string
+#  username               :string
+#

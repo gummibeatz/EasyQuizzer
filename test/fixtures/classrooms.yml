@@ -10,3 +10,13 @@ one: {}
 #
 two: {}
 #  column: value
+
+# == Schema Information
+#
+# Table name: classrooms
+#
+#  id         :integer          not null, primary key
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  title      :string
+#

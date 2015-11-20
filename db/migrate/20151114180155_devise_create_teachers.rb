@@ -36,7 +36,6 @@ class DeviseCreateTeachers < ActiveRecord::Migration
       t.integer :classroom_id
       t.string  :first_name
       t.string  :last_name
-      t.string  :username
     end
 
     add_index :teachers, :email,                unique: true

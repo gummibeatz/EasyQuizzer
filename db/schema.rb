@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 20151114180204) do
     t.integer  "classroom_id"
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "username"
   end
 
   add_index "teachers", ["email"], name: "index_teachers_on_email", unique: true, using: :btree
