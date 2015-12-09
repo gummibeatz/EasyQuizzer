@@ -44,7 +44,7 @@ class QuizzesController < ApplicationController
   private
 
   def quizz_params
-    params.require(:quizz).permit(:title, :subject, :max_score, questions_attributes: [:id, :title, :free_response, :max_score, :_destroy])
+    params.require(:quizz).permit(:title, :subject, :max_score, questions_attributes: [:id, :title, :free_response, :max_score, :_destroy, answers_attributes: [:id, :title, :_destroy]])
   end
 
 end

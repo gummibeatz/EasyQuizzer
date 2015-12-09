@@ -5,6 +5,13 @@
     <%= f.label :max_score %>
     <%= f.text_field :max_score, class: 'form-control', required: true %>
   </div>
+  <h3>Answers</h3>
+  <%= f.fields_for :answers do |answers_form| %>
+    <%= render 'answer_fields', f: answers_form %>
+  <% end %>
+  <div class="links">
+    <%= link_to_add_association 'add answer', f, :answers %> 
+  </div>
 
-  <%= link_to_remove_association "remove option", f %>
+  <%= link_to_remove_association "remove question", f %>
 </div>
