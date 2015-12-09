@@ -1,21 +1,22 @@
 <%= render 'shared/errors', object: @quizz %>
-
-<div class="form-group">
-  <%= f.label :title %>
-  <%= f.text_area :title, rows: 3, required: true, class: 'form-control' %>
-</div>
-
-<div class="panel panel-default">
-  <div class="panel-heading">Questions</div>
-  <div class="panel-body">
-    <%= f.fields_for :questions do |questions_form| %>
-      <%= render 'question_fields', f: questions_form %>
-    <% end %>
-
-    <div class="links">
-      <%= link_to_add_association 'add question', f, :questions %>
+<div class = "form-horizontal container">
+  <div class="form-group col-md-12">
+    <%= f.label :title, class: 'col-md-1 col-md-offset-2 control-label' %>
+    <div class = "col-md-6">
+      <%= f.text_area :title, required: true, rows: 1, class: 'form-control text-center' %>
     </div>
   </div>
 </div>
 
-<%= f.submit 'Create', class: 'btn btn-primary btn-lg' %>
+<%= f.fields_for :questions do |questions_form| %>
+  <%= render 'question_fields', f: questions_form %>
+<% end %>
+<div class = "col-md-12">
+  <%= link_to_add_association 'add question', f, :questions, :class => "btn btn-default btn-lg" %>
+</div>
+<div class = "col-md-1">
+  <%= f.submit :Create, class: 'btn btn-primary btn-lg' %>
+</div>
+<div>
+  <%= link_to :Cancel, quizzes_path, :class => "btn btn-default btn-lg" %>
+</div>

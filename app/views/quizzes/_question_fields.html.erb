@@ -1,17 +1,33 @@
-<div class="nested-fields">
-  <div class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: 'form-control', required: true %>
-    <%= f.label :max_score %>
-    <%= f.text_field :max_score, class: 'form-control', required: true %>
-  </div>
-  <h3>Answers</h3>
-  <%= f.fields_for :answers do |answers_form| %>
-    <%= render 'answer_fields', f: answers_form %>
-  <% end %>
-  <div class="links">
-    <%= link_to_add_association 'add answer', f, :answers %> 
-  </div>
+<div class="nested-fields container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class ="form-horizontal">
+        <div class="form-group">
+          <%= f.label :Problem, class: 'col-md-1' %>
+          <div class="col-md-10">
+            <%= f.text_area :title, class: 'form-control', required: true %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :max_score, class: 'col-md-1' %>
+          <div class ="col-md-1">
+            <%= f.text_field :max_score, class: 'form-control', required: true %>
+          </div>
+        </div>
+      </div>
+        <%= link_to_remove_association "remove question", f %>
+    </div>
+    <div class="panel-body">
+      <div class="nested-fields">
+        <h3>Answers</h3>
+        <%= f.fields_for :answers do |answers_form| %>
+          <%= render 'answer_fields', f: answers_form %>
+        <% end %>
+        <div class="links">
+          <%= link_to_add_association 'add answer', f, :answers %> 
+        </div>
 
-  <%= link_to_remove_association "remove question", f %>
+      </div>
+    </div>
+  </div>
 </div>
