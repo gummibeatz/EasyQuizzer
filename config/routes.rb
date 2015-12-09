@@ -7,4 +7,7 @@ Rails.application.routes.draw do
 # temporary routes right now
   get 'student' => 'welcome#student', :as => :student
   get 'teacher' => 'welcome#teacher', :as => :teacher
+
+  resources :quizzes  
+
 end

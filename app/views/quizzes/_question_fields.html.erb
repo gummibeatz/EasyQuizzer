@@ -1,0 +1,10 @@
+<div class="nested-fields">
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control', required: true %>
+    <%= f.label :max_score %>
+    <%= f.text_field :max_score, class: 'form-control', required: true %>
+  </div>
+
+  <%= link_to_remove_association "remove option", f %>
+</div>

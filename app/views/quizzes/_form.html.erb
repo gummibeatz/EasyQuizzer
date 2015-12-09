@@ -1,0 +1,21 @@
+<%= render 'shared/errors', object: @quizz %>
+
+<div class="form-group">
+  <%= f.label :title %>
+  <%= f.text_area :title, rows: 3, required: true, class: 'form-control' %>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">Questions</div>
+  <div class="panel-body">
+    <%= f.fields_for :questions do |questions_form| %>
+      <%= render 'question_fields', f: questions_form %>
+    <% end %>
+
+    <div class="links">
+      <%= link_to_add_association 'add question', f, :questions %>
+    </div>
+  </div>
+</div>
+
+<%= f.submit 'Create', class: 'btn btn-primary btn-lg' %>

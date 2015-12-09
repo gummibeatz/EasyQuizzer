@@ -1,0 +1,13 @@
+<% @quizzes.each do |quizz| %>
+  <div class="no-margin-top">
+    <h2><%= quizz.title %></h2>
+
+    <div class="btn-group">
+      <%= link_to 'Edit', edit_quiz_path(quizz), class: 'btn btn-default' %>
+      <%= link_to 'Delete', quiz_path(quizz),
+        method: :delete,
+        class: 'btn btn-danger', data: {confirm: 'Are you sure?'} %>
+    </div>
+
+  </div>
+<% end %>

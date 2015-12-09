@@ -30,5 +30,4 @@ end
 #  classroom_id           :integer
 #  first_name             :string
 #  last_name              :string
-#  username               :string
 #

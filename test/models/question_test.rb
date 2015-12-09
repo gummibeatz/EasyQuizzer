@@ -9,3 +9,16 @@ class QuestionTest < ActiveSupport::TestCase
     assert question.valid?
   end
 end
+
+# == Schema Information
+#
+# Table name: questions
+#
+#  id            :integer          not null, primary key
+#  title         :string
+#  free_response :boolean
+#  max_score     :integer
+#  quizz_id      :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#

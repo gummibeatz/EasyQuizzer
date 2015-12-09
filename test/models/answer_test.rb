@@ -9,3 +9,14 @@ class AnswerTest < ActiveSupport::TestCase
     assert answer.valid?
   end
 end
+
+# == Schema Information
+#
+# Table name: answers
+#
+#  id          :integer          not null, primary key
+#  question_id :integer
+#  title       :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
