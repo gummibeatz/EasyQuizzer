@@ -5,9 +5,8 @@ Rails.application.routes.draw do
   root :to => 'welcome#home'    
 
 # temporary routes right now
-  get 'student' => 'welcome#student', :as => :student
-  get 'teacher' => 'welcome#teacher', :as => :teacher
+  resources :students, :only => [:index]
+  resources :teachers, :only => [:index]
 
   resources :quizzes  
-
 end
