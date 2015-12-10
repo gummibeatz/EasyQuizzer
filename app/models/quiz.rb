@@ -1,5 +1,8 @@
-class Quizz < ActiveRecord::Base
+class Quiz < ActiveRecord::Base
   has_many :questions
+  has_many :grades
+  has_many :students, through: :grades
+
   accepts_nested_attributes_for :questions, :reject_if => :all_blank, :allow_destroy => true
   validate :has_questions
 
@@ -11,7 +14,7 @@ end
 
 # == Schema Information
 #
-# Table name: quizzs
+# Table name: quizzes
 #
 #  id         :integer          not null, primary key
 #  title      :string

@@ -1,14 +1,14 @@
 class QuizzesController < ApplicationController
   def index 
-    @quizzes = Quizz.all
+    @quizzes = Quiz.all
   end 
 
   def new
-    @quizz = Quizz.new
+    @quizz = Quiz.new
   end
 
   def create
-    @quizz = Quizz.new(quizz_params)
+    @quizz = Quiz.new(quiz_params)
     if @quizz.save
       flash[:success] = "quizz was created!"
       redirect_to quizzes_path
@@ -18,13 +18,13 @@ class QuizzesController < ApplicationController
   end
 
   def edit
-    @quizz = Quizz.find_by_id(params[:id])
+    @quizz = Quiz.find_by_id(params[:id])
   end
 
   def update
-    @quizz = Quizz.find_by_id(params[:id])
+    @quizz = Quiz.find_by_id(params[:id])
     if @quizz.update_attributes(quizz_params)
-      flash[:success] = 'Quizz was updated!'
+      flash[:success] = 'Quiz was updated!'
       redirect_to quizzes_path
     else
       render 'edit'
@@ -32,9 +32,9 @@ class QuizzesController < ApplicationController
   end
 
   def destroy
-    @quizz = Quizz.find_by_id(params[:id])
+    @quizz = Quiz.find_by_id(params[:id])
     if @quizz.destroy
-      flash[:success] = 'Quizz was destroyed!'
+      flash[:success] = 'Quiz was destroyed!'
     else
       flash[:warning] = 'Error destroying quizz...'
     end
@@ -43,8 +43,8 @@ class QuizzesController < ApplicationController
 
   private
 
-  def quizz_params
-    params.require(:quizz).permit(:title, :subject, :max_score, questions_attributes: [:id, :title, :free_response, :max_score, :_destroy, answers_attributes: [:id, :title, :_destroy]])
+  def quiz_params
+    params.require(:quiz).permit(:title, :subject, :max_score, questions_attributes: [:id, :title, :free_response, :max_score, :_destroy, answers_attributes: [:id, :title, :_destroy]])
   end
 
 end

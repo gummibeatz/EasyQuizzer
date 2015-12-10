@@ -7,6 +7,10 @@ class Student < ActiveRecord::Base
          :authentication_keys => [:login]
 
   belongs_to :classroom
+  has_many :student_answers
+  has_many :grades
+  has_many :quizzes, through: :grades
+  
 
   validates :username,
   :presence => true,

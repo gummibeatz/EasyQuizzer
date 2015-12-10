@@ -13,13 +13,11 @@ two: {}
 
 # == Schema Information
 #
-# Table name: questions
+# Table name: student_answers
 #
-#  id            :integer          not null, primary key
-#  title         :string
-#  free_response :boolean
-#  max_score     :integer
-#  quiz_id       :integer
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
+#  id         :integer          not null, primary key
+#  student_id :integer
+#  answer_id  :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
