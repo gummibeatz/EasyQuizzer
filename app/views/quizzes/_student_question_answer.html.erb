@@ -1,0 +1,6 @@
+<% question.answers.each do |answer| %>
+  <div class="form-group">
+    <%= radio_button_tag "questions[#{question.id}]", answer.id %>
+    <%= answer.title %>
+  </div>
+<% end %>

@@ -1,10 +1,16 @@
 class QuizzesController < ApplicationController
+
   def index 
     @quizzes = Quiz.all
   end 
 
   def new
     @quizz = Quiz.new
+  end
+
+  def show
+    byebug
+    @quiz = Quiz.includes(questions: [:answers] ).find(params[:id])
   end
 
   def create
@@ -23,7 +29,7 @@ class QuizzesController < ApplicationController
 
   def update
     @quizz = Quiz.find_by_id(params[:id])
-    if @quizz.update_attributes(quizz_params)
+    if @quizz.update_attributes(quiz_params)
       flash[:success] = 'Quiz was updated!'
       redirect_to quizzes_path
     else

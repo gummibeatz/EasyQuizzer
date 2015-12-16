@@ -8,6 +8,7 @@ class Student < ActiveRecord::Base
 
   belongs_to :classroom
   has_many :student_answers
+  has_many :answers, through: :student_answers
   has_many :grades
   has_many :quizzes, through: :grades
   

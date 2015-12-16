@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   resources :teachers, :only => [:index]
 
   resources :quizzes  
+  resources :student_answers, :only => [:create]
+
 end

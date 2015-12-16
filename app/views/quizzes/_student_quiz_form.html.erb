@@ -1,0 +1,15 @@
+<div class= "container">
+  <%= form_tag student_answers_path, method: :post, remote: true, id: 'student_quiz_form' do %>
+    <%= hidden_field_tag :quiz, @quiz.id %>
+    <% @quiz.questions.each do |question| %>
+        
+      <div class = "panel panel-default"> 
+        <div class="panel-heading"><%= question.title %></div>
+        <div class = "panel-body">
+          <%= render 'student_question_answer', question: question  %>
+        </div>
+      </div>
+    <% end %>
+    <%= submit_tag 'Submit', class: 'btn btn-lg btn-primary' %>
+  <% end %>
+</div>

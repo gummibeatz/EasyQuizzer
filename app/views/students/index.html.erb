@@ -1,4 +1,7 @@
 STUDENTTTTT TIMEEEEEEEE
 <% @quizzes.each do |quiz| %>
-  <div><%=quiz%></div>
+  <div class="container">
+    <h3><%= quiz.title %><h3>
+        <%= link_to 'Take Quiz!', quiz_path(quiz), class: 'btn btn-primary btn-lg block' %>
+  </div>
 <% end %>
