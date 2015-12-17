@@ -1,5 +1,5 @@
 <div class= "container">
-  <%= form_tag student_answers_path, method: :post, remote: true, id: 'student_quiz_form' do %>
+  <%= form_tag student_answers_path, method: :post, id: 'student_quiz_form' do %>
     <%= hidden_field_tag :quiz, @quiz.id %>
     <% @quiz.questions.each do |question| %>
         

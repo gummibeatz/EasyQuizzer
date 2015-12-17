@@ -9,7 +9,6 @@ class QuizzesController < ApplicationController
   end
 
   def show
-    byebug
     @quiz = Quiz.includes(questions: [:answers] ).find(params[:id])
   end
 

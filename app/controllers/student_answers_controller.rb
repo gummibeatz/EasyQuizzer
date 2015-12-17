@@ -8,7 +8,8 @@ class StudentAnswersController < ApplicationController
       })
       end
       flash[:success] = "quiz finished"
-      respond_with current_student
+      redirect_to students_path
     end
   end
+
 end
